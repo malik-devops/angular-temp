@@ -5,6 +5,8 @@ COPY package.json ./
 RUN npm install
 COPY . .
 RUN npm run build:${ENVIRONMENT}
+
+
 FROM nginx:1.24.0-alpine3.17
 ARG GIT_COMMIT_ID
 LABEL git_commit=$GIT_COMMIT_ID
